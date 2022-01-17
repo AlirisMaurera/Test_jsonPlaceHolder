@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'de.javaansehz.cluecumber-report-gradle-plugin' version "1.4.0"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation group: 'io.cucumber', name: 'cucumber-java', version: '7.0.0'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.0.0'
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.4.0'
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task cucumber() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty',
+                    '--plugin', "json:${buildDir}/cucumber-report/cucumber.json"
+//                    '--glue', "steps", "src/test/resources/features"
+            ]
+        }
+    }
+}
+cucumber.finalizedBy generateCluecumberReports
+
+cluecumberReports {
+    sourceJsonReportDirectory = "${buildDir}/cucumber-report"
+    generatedHtmlReportDirectory = "${buildDir}/html-reports"
+}

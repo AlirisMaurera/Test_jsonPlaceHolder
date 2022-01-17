@@ -1,0 +1,896 @@
+
+    <!--
+    Copyright 2019 trivago N.V.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <base href="..">
+    <head title="Cluecumber Report - All Steps">
+        <title>Cluecumber Report - All Steps</title>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Security-Policy" content="default-src *  data: blob: 'unsafe-inline' 'unsafe-eval';
+script-src * data: blob: 'unsafe-inline' 'unsafe-eval';
+connect-src * data: blob: 'unsafe-inline';
+img-src * data: blob: 'unsafe-inline';
+frame-src * data: blob: ;
+style-src * data: blob: 'unsafe-inline';
+font-src * data: blob: 'unsafe-inline';"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Cluecumber Report">
+<meta name="author" content="Cluecumber Report Plugin version 2.7.0">
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/datatables.min.css">
+<link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="css/jquery.fancybox.min.css"/>
+<link rel="stylesheet" href="css/cluecumber.css" type="text/css">
+<link rel="stylesheet" href="css/cluecumber-custom.css"/>
+<link rel="stylesheet" href="css/cluecumber-additional.css"/>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/datatables.min.js"></script>
+<script src="js/jquery.fancybox.min.js"></script>
+<script src="js/Chart.bundle.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+            // Data tables
+            $('.renderAsDataTable').on('draw.dt', function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            }).DataTable({
+                "oLanguage": {
+                    "sSearch": "Search:"
+                },
+                "pageLength": 25,
+                "responsive": true
+            });
+
+            $('.collapse').on('shown.bs.collapse', function (e) {
+                $(e.target).find("iframe").each(function (index, iframe) {
+                    resizeIframe(iframe);
+                })
+            });
+
+            // Lightbox
+            $("a.grouped_elements").fancybox();
+
+            // Tool tips
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Chart
+            var canvas = document.getElementById('chart-area');
+            var ctx = canvas.getContext("2d");
+            var chart = new Chart(ctx, {
+  "data": {
+    "labels": [
+      "a valid id {}",
+      "do get with a id {}",
+      "do put in the endpoint in a register with id {}",
+      "status code is {}",
+      "a valid data of user existing {}",
+      "do delete in the endpoint",
+      "a user be a endpoint",
+      "return a status code {}",
+      "the data is update {} {} {}",
+      "return status code {}",
+      "do patch in the endpoint in a register with id {}",
+      "status code returned is {}",
+      "it shows a body of the requested resource with equal id {}",
+      "a valid data {} {} {}",
+      "user be a endpoint",
+      "a valid data of user existing {} {} {}",
+      "do get",
+      "the data {} {} {}",
+      "status code returned {}",
+      "is returned status code {}",
+      "display a list of resources greater than or equal to {}",
+      "do post in the endpoint",
+      "the data is update {}"
+    ],
+    "datasets": [
+      {
+        "data": [
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "backgroundColor": [
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)"
+        ],
+        "label": "passed"
+      },
+      {
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "backgroundColor": [
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)"
+        ],
+        "label": "failed"
+      },
+      {
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "backgroundColor": [
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)"
+        ],
+        "label": "skipped"
+      }
+    ]
+  },
+  "options": {
+    "scales": {
+      "xAxes": [
+        {
+          "ticks": {
+            "min": 0,
+            "stepSize": 0,
+            "display": false
+          },
+          "stacked": true,
+          "scaleLabel": {
+            "display": true,
+            "labelString": "23 Steps"
+          },
+          "stepSize": 0.0
+        }
+      ],
+      "yAxes": [
+        {
+          "ticks": {
+            "min": 0,
+            "stepSize": 2,
+            "display": true
+          },
+          "stacked": true,
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Number of Usages"
+          },
+          "stepSize": 0.0
+        }
+      ]
+    },
+    "events": [
+      "click",
+      "mousemove"
+    ]
+  },
+  "type": "bar"
+});
+
+            var original;
+            if (chart.config.type === "pie") {
+                original = Chart.defaults.pie.legend.onClick;
+            } else {
+                original = Chart.defaults.global.legend.onClick;
+            }
+
+            chart.options.onClick = function (evt, elements) {
+                if (chart.config.type !== "pie") return;
+                chartArea = elements[0];
+                if (chartArea === undefined) return;
+                chartArea.hidden = !chartArea.hidden;
+                chart.update();
+                toggleVisibilityByStatus(chartArea._model.label, !chartArea.hidden)
+            };
+
+            chart.options.legend.onClick = function (evt, label) {
+                original.call(this, evt, label);
+                toggleVisibilityByStatus(label.text, label.hidden);
+            };
+
+            function toggleVisibilityByStatus(statusText, show) {
+                var card = $("#card_" + statusText);
+                if (card !== undefined) {
+                    if (show) {
+                        card.show();
+                    } else {
+                        card.hide();
+                    }
+                }
+
+                var row = $(".table-row-" + statusText);
+                if (row !== undefined) {
+                    if (show) {
+                        row.show();
+                    } else {
+                        row.hide();
+                    }
+                }
+            }
+
+
+            if (false) {
+                $(".btn-outline-secondary[data-cluecumber-item='before-after-hooks-button']").click();
+            }
+            if (false) {
+                $(".btn-outline-secondary[data-cluecumber-item='step-hooks-button']").click();
+            }
+            if (false) {
+                $(".btn-outline-secondary[data-cluecumber-item='doc-strings-button']").click();
+            }
+        }
+    );
+
+    function resizeIframe(iframe) {
+        iframe.style.height = (iframe.contentWindow.document.body.scrollHeight + 25) + 'px';
+    }
+</script>    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                                <a class="nav-link " href="pages/scenario-summary.html">All Scenarios</a>
+                    </li>
+                    <li class="nav-item">
+                                <a class="nav-link " href="pages/scenario-sequence.html">Scenario Sequence</a>
+                    </li>
+                    <li class="nav-item">
+                                <a class="nav-link " href="pages/tag-summary.html">All Tags</a>
+                    </li>
+                    <li class="nav-item">
+                                <a class="nav-link text-white" href="pages/step-summary.html">All Steps</a>
+                    </li>
+                    <li class="nav-item">
+                                <a class="nav-link " href="pages/feature-summary.html">All Features</a>
+                    </li>
+            </ul>
+            <span class="text-light">2022-01-17 11:40:25</span>
+        </div>
+    </nav>
+    <main role="main" class="container">
+        <div class="cluecumber-template">
+            <div class="pb-2 mt-4 mb-2 border-bottom">
+                    <h3>All Steps</h3>
+            </div>
+
+    <div class="row" id="step-summary">
+    <div class="col-sm-9  h-auto" data-cluecumber-item="card">
+        <div class="card h-100">
+                <div class="card-header">Step Summary Result Chart</div>
+            <div class="card-body">
+    <div id="canvas-holder" class="w-100 text-center" style="min-height: 15rem;" data-cluecumber-item="chart">
+        <canvas id="chart-area" class="w-100"></canvas>
+    </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3  h-auto" data-cluecumber-item="card">
+        <div class="card h-100">
+                <div class="card-header">Steps Summary</div>
+            <div class="card-body">
+            <ul class="list-group list-group-flush" data-cluecumber-item="step-summary">
+                <li class="list-group-item">
+                    23         Steps
+ in
+                    <br>
+                    7         Scenarios
+
+                </li>
+                <li class="list-group-item">
+                    7 passed     <i class="color-passed cluecumber-icon icon-passed" data-toggle="tooltip"
+       title="passed"><span style="display:none">passed</span></i>
+
+                    <br>
+                    0 failed     <i class="color-failed cluecumber-icon icon-failed" data-toggle="tooltip"
+       title="failed"><span style="display:none">failed</span></i>
+
+                    <br>
+                    0 skipped    <i class="color-skipped cluecumber-icon icon-skipped" data-toggle="tooltip"
+       title="skipped"><span style="display:none">skipped</span></i>
+
+                </li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row" id="available-steps">
+    <div class="col-sm-12  h-auto" data-cluecumber-item="card">
+        <div class="card h-100">
+                <div class="card-header">Available Steps</div>
+            <div class="card-body">
+            <table id="step_summary" class="table table-hover renderAsDataTable"
+                   data-cluecumber-item="step-summary-table">
+                <thead>
+                <tr>
+                    <th>Step</th>
+                    <th>Total</th>
+                    <th class="passedCell">    <i class="color-passed cluecumber-icon icon-passed" data-toggle="tooltip"
+       title="passed"><span style="display:none">passed</span></i>
+</th>
+                    <th class="failedCell">    <i class="color-failed cluecumber-icon icon-failed" data-toggle="tooltip"
+       title="failed"><span style="display:none">failed</span></i>
+</th>
+                    <th class="skippedCell">    <i class="color-skipped cluecumber-icon icon-skipped" data-toggle="tooltip"
+       title="skipped"><span style="display:none">skipped</span></i>
+</th>
+                    <th>Min Time</th>
+                    <th>Max Time</th>
+                    <th>Ø Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.DeleteAResource.a_valid_id(java.lang.String)">
+                                <a href="pages/step-scenarios/step_0563576376.html">a valid id {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 000ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.GetAresourceById.do_get_with_a_id(java.lang.String)">
+                                <a href="pages/step-scenarios/step_1152133772.html">do get with a id {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right passedCell">2</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_4.html">0m 00s 210ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 235ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 222ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.UpdateAResource.do_put_in_the_endpoint_in_a_register_with_id(java.lang.String)">
+                                <a href="pages/step-scenarios/step_1446277044.html">do put in the endpoint in a register with id {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_7.html">0m 00s 459ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_7.html">0m 00s 459ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 459ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.ListingAllResources.status_code_is(int)">
+                                <a href="pages/step-scenarios/step_1638141349.html">status code is {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 000ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.PatchAResource.a_valid_data_of_user_existing(java.lang.String)">
+                                <a href="pages/step-scenarios/step_01874574650.html">a valid data of user existing {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_6.html">0m 00s 001ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_6.html">0m 00s 001ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 001ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.DeleteAResource.do_delete_in_the_endpoint()">
+                                <a href="pages/step-scenarios/step_1437310668.html">do delete in the endpoint</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 487ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 487ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 487ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.GetAresourceById.a_user_be_a_endpoint()">
+                                <a href="pages/step-scenarios/step_674367605.html">a user be a endpoint</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right passedCell">2</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_4.html">0m 00s 001ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 002ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 001ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.PatchAResource.return_a_status_code(int)">
+                                <a href="pages/step-scenarios/step_01712125932.html">return a status code {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_6.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_6.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 000ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.UpdateAResource.the_data_is_update(java.lang.String,java.lang.String,java.lang.String)">
+                                <a href="pages/step-scenarios/step_01220111711.html">the data is update {} {} {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_7.html">0m 00s 045ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_7.html">0m 00s 045ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 045ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.UpdateAResource.return_status_code(int)">
+                                <a href="pages/step-scenarios/step_070374745.html">return status code {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_7.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_7.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 000ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.PatchAResource.do_patch_in_the_endpoint_in_a_register_with_id(java.lang.String)">
+                                <a href="pages/step-scenarios/step_0363586818.html">do patch in the endpoint in a register with id {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_6.html">0m 00s 451ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_6.html">0m 00s 451ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 451ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.GetAresourceById.status_code_returned_is(int)">
+                                <a href="pages/step-scenarios/step_1973652680.html">status code returned is {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right passedCell">2</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 000ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.GetAresourceById.it_shows_a_body_of_the_requested_resource(java.lang.String)">
+                                <a href="pages/step-scenarios/step_02017916046.html">it shows a body of the requested resource with equal id {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 030ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 030ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 030ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.CreateAResource.a_valid_data(java.lang.String,java.lang.String,int)">
+                                <a href="pages/step-scenarios/step_1578754132.html">a valid data {} {} {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 157ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 157ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 157ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.ListingAllResources.user_be_a_endpoint()">
+                                <a href="pages/step-scenarios/step_01420184280.html">user be a endpoint</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 000ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.UpdateAResource.a_valid_data_of_user_existing(java.lang.String,java.lang.String,int)">
+                                <a href="pages/step-scenarios/step_0330183323.html">a valid data of user existing {} {} {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_7.html">0m 00s 001ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_7.html">0m 00s 001ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 001ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.ListingAllResources.do_get()">
+                                <a href="pages/step-scenarios/step_01485122353.html">do get</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 00s 222ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 00s 222ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 222ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.CreateAResource.the_data(java.lang.String,java.lang.String,java.lang.String)">
+                                <a href="pages/step-scenarios/step_304223957.html">the data {} {} {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 430ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 430ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 430ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.DeleteAResource.status_code_returned(int)">
+                                <a href="pages/step-scenarios/step_778330908.html">status code returned {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 000ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 000ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.CreateAResource.is_returned_status_code(int)">
+                                <a href="pages/step-scenarios/step_1379763140.html">is returned status code {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 001ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 001ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 001ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.ListingAllResources.display_a_list_of_resources_greater_than_or_equal_to(int)">
+                                <a href="pages/step-scenarios/step_0713819153.html">display a list of resources greater than or equal to {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 00s 042ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 00s 042ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 042ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.CreateAResource.do_post_in_the_endpoint()">
+                                <a href="pages/step-scenarios/step_01183990192.html">do post in the endpoint</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 01s 222ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 01s 222ms</a>
+                        </td>
+                        <td class="text-right small">0m 01s 222ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="steps.PatchAResource.the_data_is_update(java.lang.String)">
+                                <a href="pages/step-scenarios/step_1401906258.html">the data is update {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right passedCell">1</td>
+                        <td class="text-right failedCell">0</td>
+                        <td class="text-right skippedCell">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_6.html">0m 00s 021ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_6.html">0m 00s 021ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 021ms</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    </div>
+        </div>
+    </main>
+
+<footer class="footer navbar-dark">
+    <div class="container-fluid">
+        <span>Cluecumber Report Plugin version 2.7.0 - Report generated on 2022-01-17 11:40:25.</span>
+    </div>
+</footer>    </body>
+    </html>
+
